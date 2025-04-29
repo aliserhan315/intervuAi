@@ -31,10 +31,10 @@ async function Home() {
           </p>
           <div className="flex gap-4">
             <Button asChild className="btn-primary max-sm:w-full">
-              <Link href="/interview">Start an Interview</Link>
+              <Link href="/generate-test">Generate using questions</Link>
             </Button>
             <Button asChild className="btn-primary max-sm:w-full">
-              <Link href="/generate-test">Try Manual Prompt</Link>
+              <Link href="/interview">generate Interview using call </Link>
             </Button>
           </div>
         </div>
