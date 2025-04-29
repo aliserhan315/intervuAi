@@ -1,21 +1,29 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ReactNode } from "react";
+import Link from "next/link";
+import React, { ReactNode } from "react";
 import { redirect } from "next/navigation";
+import { isAuthenticated, signOut } from "@/lib/actions/auth.action"; // Import signOut
 
-import { isAuthenticated } from "@/lib/actions/auth.action";
-
-const Layout = async ({ children }: { children: ReactNode }) => {
+const Rootlayout = async ({ children }: { children: ReactNode }) => {
   const isUserAuthenticated = await isAuthenticated();
   if (!isUserAuthenticated) redirect("/sign-in");
 
   return (
     <div className="root-layout">
-      <nav>
+      <nav className="flex justify-between ">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="MockMate Logo" width={38} height={32} />
-          <h2 className="text-primary-100">PrepWise</h2>
+          <Image src="/logo.svg" alt="logo" height={32} width={38} />
+          <h2 className="text-primary-100 font-semibold text-lg">IntervuAI</h2>
         </Link>
+
+        <form action={signOut}>
+          <button
+            type="submit"
+            className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 cursor-pointer rounded-md transition-colors duration-200"
+          >
+            Sign Out
+          </button>
+        </form>
       </nav>
 
       {children}
@@ -23,4 +31,4 @@ const Layout = async ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default Layout;
+export default Rootlayout;
