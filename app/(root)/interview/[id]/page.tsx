@@ -54,7 +54,6 @@ const InterviewDetails = async ({ params }: RouteParams) => {
         questions={interview.questions}
         feedbackId={feedback?.id}
       />
-      router.push(`/interviews/${id}/feedback`);
     </>
   );
 };

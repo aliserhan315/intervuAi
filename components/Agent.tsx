@@ -42,6 +42,7 @@ const Agent = ({
 
     const onCallEnd = () => {
       setCallStatus(CallStatus.FINISHED);
+      router.push("/");
     };
 
     const onMessage = (message: Message) => {

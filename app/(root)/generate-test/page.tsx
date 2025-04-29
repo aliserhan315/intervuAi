@@ -64,7 +64,7 @@ export default function GenerateTestPage() {
         throw new Error(data.message || "Failed to generate interview");
       }
 
-      router.push("/interview");
+      router.push("/");
     } catch (error: any) {
       console.error("Submission failed:", error);
       setError(error.message);
